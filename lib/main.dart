@@ -1,3 +1,4 @@
+import 'package:dev_dtd/Model_Thong_tin_user/Thong_Tin_user.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -36,9 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(),
-      ),
+      body: Thong_Tin_User(),
     );
   }
 }
