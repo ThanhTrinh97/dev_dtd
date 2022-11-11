@@ -1,6 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'credit.dart';
+import 'history.dart';
+import 'report.dart';
+import 'settings.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key});
