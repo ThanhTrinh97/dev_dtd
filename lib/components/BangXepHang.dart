@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../model/Icons.dart';
 import 'package:dev_dtd/main.dart';
 
@@ -32,38 +33,22 @@ class _BXHState extends State<BangXepHang> with TickerProviderStateMixin{
   }
   @override
   Widget build (BuildContext context){
-    var appBar2 = AppBar(
-        toolbarHeight: MediaQuery.of(context).size.width/3+10,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        automaticallyImplyLeading: false,
-        // ignore: avoid_unnecessary_containers
-        title: Center(
-          child: Container(child: Column(children: [
-              Row(mainAxisAlignment: MainAxisAlignment.start,children: [
-                IconButton(onPressed: (() {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                    builder: (context) => MyHomePage(title: 'HomePage',),
-                      )
-                    );
-                  }), icon: Icon(Icons.home, size: 50, color: Colors.black,)),
-              ],),
-              Row(mainAxisAlignment: MainAxisAlignment.center,children: [
-                Image.asset(
-                  'images/logo1.png',
-                  width: MediaQuery.of(context).size.width/3,
-                  height: MediaQuery.of(context).size.width/3,
-                  fit: BoxFit.cover,
-                )
-              ],),
-          ],)),
-        ),
-      );
     return 
     Scaffold(
-      appBar: appBar2,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+            icon: Icon(Icons.home, size: 30,),
+            onPressed: () {
+              Get.to(()=>MyHomePage(title: 'Trang Chu'));
+            },
+          ),
+          
+        // Fluttter show the back button automatically
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
+      extendBodyBehindAppBar: true,
       bottomNavigationBar: Container(
         color: Colors.blueAccent,
         child: TabBar(
@@ -76,35 +61,60 @@ class _BXHState extends State<BangXepHang> with TickerProviderStateMixin{
           tabs: myTabs
         ),
       ),
-      body: TabBarView(
-        controller: _tabController,
-        children: <Widget>[
-            Center(
-            child: Container(
-              width: MediaQuery.of(context).size.width/2,
-              height: MediaQuery.of(context).size.height/2,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black)
-              ),
-              child: Column(children: [
-                Text('Danh sách người chơi có điểm cao nhất', textAlign: TextAlign.center, style: TextStyle(fontSize: 20, color: Colors.red, fontWeight: FontWeight.bold),),
-              ]),
-            ),
-            ),            
-            Center(
-            child: Container(
-              width: MediaQuery.of(context).size.width/2,
-              height: MediaQuery.of(context).size.height/2,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black)
-              ),
-              child: Column(children: [
-                Text('Danh sách người chơi có Level cao nhat', textAlign: TextAlign.center, style: TextStyle(fontSize: 20, color: Colors.red, fontWeight: FontWeight.bold),),
-              ]),
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('images/background.jpg'),
+                fit: BoxFit.cover
+              )
             ),
           ),
-        ],
+          Center(child: Column(children: [
+            Image(image: AssetImage('images/logo1.png'), fit: BoxFit.cover,
+                        width: MediaQuery.of(context).size.width/3,
+                        height: MediaQuery.of(context).size.width/3,
+                      ),
+          ],),),
+          TabBarView(
+            controller: _tabController,
+            children: <Widget>[
+                Center(
+                child: Container(
+                  width: MediaQuery.of(context).size.width/2,
+                  height: MediaQuery.of(context).size.height/2,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(color: Colors.black)
+                  ),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border(bottom: BorderSide(color: Colors.black))
+                    ),
+                    child: Column(children: [
+                      Text('Danh sách người chơi có điểm cao nhất', textAlign: TextAlign.center, style: TextStyle(fontSize: 20, color: Colors.red, fontWeight: FontWeight.bold),),
+                    ]),
+                  ),
+                ),
+                ),            
+                Center(
+                child: Container(
+                  width: MediaQuery.of(context).size.width/2,
+                  height: MediaQuery.of(context).size.height/2,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black)
+                  ),
+                  child: Column(children: [
+                    Text('Danh sách người chơi có Level cao nhat', textAlign: TextAlign.center, style: TextStyle(fontSize: 20, color: Colors.red, fontWeight: FontWeight.bold),),
+                  ]),
+                ),
+              ),
+            ],
       ),
+        ],
+      )
     );
   }
 }

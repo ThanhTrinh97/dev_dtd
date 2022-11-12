@@ -1,5 +1,7 @@
 import 'package:dev_dtd/components/ChonCauTraLoi/srceens/quiz/quiz_screen.dart';
 import 'package:dev_dtd/components/HuongDanCachChoi.dart';
+import 'package:dev_dtd/components/defeat.dart';
+import 'package:dev_dtd/components/vitory.dart';
 import 'package:flutter/material.dart';
 import 'components/ChonDoKhoCauHoi.dart';
 import 'components/BangXepHang.dart';
@@ -45,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ElevatedButton(
         onPressed: () => Get.to(()=>QuizScreen()),
         child: Text('bat dau choi'),
-      ),
+        ),
         ElevatedButton(
         onPressed: () {
           Navigator.push(
@@ -56,6 +58,28 @@ class _MyHomePageState extends State<MyHomePage> {
           );
         },
         child: Text('BXH'),
+        ),
+        ElevatedButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Victory(),
+            )
+          );
+        },
+        child: Text('Chien Thang'),
+        ),
+        ElevatedButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Defeat(),
+            )
+          );
+        },
+        child: Text('That bai'),
         ),
       ],),
       
