@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../model/Icons.dart';
 import 'package:dev_dtd/main.dart';
+//bảng xếp hạng
 
 class BangXepHang extends StatefulWidget{
   BangXepHang({super.key});
