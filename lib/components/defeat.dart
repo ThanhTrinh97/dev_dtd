@@ -4,8 +4,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:get/get.dart';
 import 'package:matcher/matcher.dart';
-
 import '../main.dart';
+//màn hình thất bại
+
 
 class Defeat extends StatelessWidget {
   const Defeat({super.key});
