@@ -43,9 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Row(children: [
         ElevatedButton(
-        onPressed: () {
-          Get.to(QuizScreen());
-        },
+        onPressed: () => Get.to(()=>QuizScreen()),
         child: Text('bat dau choi'),
       ),
         ElevatedButton(
