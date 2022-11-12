@@ -38,3 +38,4 @@ class ScoreScreen extends StatelessWidget {
     );
   }
 }
+//xu ly ban diem
