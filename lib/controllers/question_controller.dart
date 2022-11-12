@@ -5,6 +5,7 @@ import 'package:dev_dtd/model/Questions.dart';
 import 'package:dev_dtd/components/ChonCauTraLoi/srceens/score/score_screen.dart';
 
 // We use get package for our state management
+//xữ lý sự kiện câu hỏi
 
 class QuestionController extends GetxController
     // ignore: deprecated_member_use
