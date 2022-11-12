@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'menu.dart';
+import 'navbarmenu.dart';
 import 'report.dart';
 
 class Settings extends StatefulWidget {
@@ -54,7 +54,7 @@ class _Settings extends State<Settings> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const Menu()));
+                                    builder: (context) => const NavbarMenu()));
                           },
                           icon: Icon(
                             Icons.clear,

@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'menu.dart';
+import 'navbarmenu.dart';
 
 class ShopCredit extends StatefulWidget {
   const ShopCredit({super.key});
@@ -42,7 +42,8 @@ class _ShopCredit extends State<ShopCredit> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => const Menu()));
+                                        builder: (context) =>
+                                            const NavbarMenu()));
                               },
                               icon: Icon(
                                 Icons.keyboard_double_arrow_left,
@@ -66,7 +67,8 @@ class _ShopCredit extends State<ShopCredit> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => const Menu()));
+                                        builder: (context) =>
+                                            const NavbarMenu()));
                               },
                               icon: Icon(
                                 Icons.diamond_outlined,

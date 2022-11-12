@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'menu.dart';
+import 'navbarmenu.dart';
 
 class Report extends StatelessWidget {
   const Report({super.key});
@@ -46,7 +46,7 @@ class Report extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const Menu()));
+                                  builder: (context) => const NavbarMenu()));
                         },
                         icon: Icon(
                           Icons.clear,

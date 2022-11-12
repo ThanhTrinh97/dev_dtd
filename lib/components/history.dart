@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'menu.dart';
+import 'navbarmenu.dart';
 
 class History extends StatefulWidget {
   const History({super.key});
@@ -46,7 +46,7 @@ class _History extends State<History> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const Menu()));
+                                    builder: (context) => const NavbarMenu()));
                           },
                           icon: Icon(
                             Icons.clear,
