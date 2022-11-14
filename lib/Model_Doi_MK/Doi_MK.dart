@@ -22,7 +22,7 @@ class _Doi_MK extends State<Doi_MK> {
               height: MediaQuery.of(context).size.height,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('Images/h1.jpg'), fit: BoxFit.fill),
+                    image: AssetImage('Images/h1.jpg'), fit: BoxFit.cover),
               ),
             ),
             SingleChildScrollView(
@@ -81,7 +81,7 @@ class _Doi_MK extends State<Doi_MK> {
                               ),
                               suffixIcon: Icon(Icons.remove_red_eye),
                               labelStyle: TextStyle(
-                                  color: Colors.yellow,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.bold)),
                         ),
                       ),
@@ -102,7 +102,7 @@ class _Doi_MK extends State<Doi_MK> {
                               ),
                               suffixIcon: Icon(Icons.remove_red_eye),
                               labelStyle: TextStyle(
-                                  color: Colors.yellow,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.bold)),
                         ),
                       ),
@@ -123,7 +123,7 @@ class _Doi_MK extends State<Doi_MK> {
                               ),
                               suffixIcon: Icon(Icons.remove_red_eye),
                               labelStyle: TextStyle(
-                                  color: Colors.yellow,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.bold)),
                         ),
                       ),
