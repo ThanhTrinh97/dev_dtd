@@ -63,7 +63,7 @@ class _Quen_MK extends State<Quen_MK> {
                           ),
                           suffixIcon: Icon(Icons.remove_red_eye),
                           labelStyle: TextStyle(
-                              color: Colors.yellow,
+                              color: Colors.white,
                               fontWeight: FontWeight.bold)),
                     ),
                   ),
@@ -84,7 +84,7 @@ class _Quen_MK extends State<Quen_MK> {
                           ),
                           suffixIcon: Icon(Icons.remove_red_eye),
                           labelStyle: TextStyle(
-                              color: Colors.yellow,
+                              color: Colors.white,
                               fontWeight: FontWeight.bold)),
                     ),
                   ),
@@ -107,7 +107,7 @@ class _Quen_MK extends State<Quen_MK> {
                             Icons.remove_red_eye,
                           ),
                           labelStyle: TextStyle(
-                              color: Colors.yellow,
+                              color: Colors.white,
                               fontWeight: FontWeight.bold)),
                     ),
                   ),
