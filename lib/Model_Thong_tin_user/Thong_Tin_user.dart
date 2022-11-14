@@ -79,7 +79,7 @@ class _Thong_Tin_User extends State<Thong_Tin_User> {
                             color: Colors.white,
                           ),
                           labelStyle: TextStyle(
-                              color: Colors.yellow,
+                              color: Colors.white,
                               fontWeight: FontWeight.w500)),
                     ),
                   ),
@@ -99,7 +99,7 @@ class _Thong_Tin_User extends State<Thong_Tin_User> {
                             color: Colors.white,
                           ),
                           labelStyle: TextStyle(
-                              color: Colors.yellow,
+                              color: Colors.white,
                               fontWeight: FontWeight.w500)),
                     ),
                   ),
@@ -119,7 +119,7 @@ class _Thong_Tin_User extends State<Thong_Tin_User> {
                           ),
                           labelText: 'SỐ ĐIỆN THOẠI',
                           labelStyle: TextStyle(
-                              color: Colors.yellow,
+                              color: Colors.white,
                               fontWeight: FontWeight.w500)),
                     ),
                   ),
@@ -139,7 +139,7 @@ class _Thong_Tin_User extends State<Thong_Tin_User> {
                           ),
                           labelText: 'NĂM SINH',
                           labelStyle: TextStyle(
-                              color: Colors.yellow,
+                              color: Colors.white,
                               fontWeight: FontWeight.w500)),
                     ),
                   ),
@@ -160,7 +160,7 @@ class _Thong_Tin_User extends State<Thong_Tin_User> {
                           labelText: 'MẬT KHẨU CẤP 2',
                           suffixIcon: Icon(Icons.remove_red_eye),
                           labelStyle: TextStyle(
-                              color: Colors.yellow,
+                              color: Colors.white,
                               fontWeight: FontWeight.w500)),
                     ),
                   ),
