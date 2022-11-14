@@ -63,7 +63,7 @@ class _Dang_Ky extends State<Dang_Ky> {
                             prefixIcon:
                                 Icon(Icons.add_outlined, color: Colors.white),
                             labelStyle: TextStyle(
-                                color: Colors.yellow,
+                                color: Colors.white,
                                 fontWeight: FontWeight.bold)),
                       ),
                     ),
@@ -81,7 +81,7 @@ class _Dang_Ky extends State<Dang_Ky> {
                             prefixIcon: Icon(Icons.supervised_user_circle,
                                 color: Colors.white),
                             labelStyle: TextStyle(
-                              color: Colors.yellow,
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                             )),
                       ),
@@ -99,7 +99,7 @@ class _Dang_Ky extends State<Dang_Ky> {
                             labelText: 'SỐ ĐIỆN THOẠI',
                             prefixIcon: Icon(Icons.phone, color: Colors.white),
                             labelStyle: TextStyle(
-                              color: Colors.yellow,
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                             )),
                       ),
@@ -121,7 +121,7 @@ class _Dang_Ky extends State<Dang_Ky> {
                             ),
                             suffixIcon: Icon(Icons.remove_red_eye),
                             labelStyle: TextStyle(
-                              color: Colors.yellow,
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                             )),
                       ),
@@ -140,7 +140,7 @@ class _Dang_Ky extends State<Dang_Ky> {
                             prefixIcon: Icon(Icons.lock, color: Colors.white),
                             suffixIcon: Icon(Icons.remove_red_eye),
                             labelStyle: TextStyle(
-                              color: Colors.yellow,
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                             )),
                       ),
