@@ -135,7 +135,7 @@ class _NavbarMenu extends State<NavbarMenu> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.logout,
+                          Icons.logout_outlined,
                           color: currentTab == 3 ? Colors.blue : Colors.grey,
                         ),
                         Text('Thoát',

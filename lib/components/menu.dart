@@ -402,7 +402,7 @@ class _Menu extends State<Menu> {
                                 top: 10,
                                 bottom: 10,
                                 left: 60,
-                                right: 0,
+                                right: 60,
                               ),
                               child: Text(
                                 'CỬA HÀNG',

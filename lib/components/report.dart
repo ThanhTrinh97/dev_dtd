@@ -72,6 +72,7 @@ class Report extends StatelessWidget {
                     child: Container(
                       padding: EdgeInsets.fromLTRB(3, 20, 3, 20),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
@@ -83,7 +84,7 @@ class Report extends StatelessWidget {
                             ],
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text('Đánh giá trò chơi'),
                             ],
@@ -97,6 +98,7 @@ class Report extends StatelessWidget {
                     child: Container(
                       padding: EdgeInsets.fromLTRB(3, 20, 3, 20),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
@@ -108,7 +110,7 @@ class Report extends StatelessWidget {
                             ],
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text('FAQ'),
                             ],
@@ -122,6 +124,7 @@ class Report extends StatelessWidget {
                     child: Container(
                       padding: EdgeInsets.fromLTRB(3, 20, 3, 20),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
@@ -133,7 +136,7 @@ class Report extends StatelessWidget {
                             ],
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text('Báo cáo câu hỏi'),
                             ],
@@ -147,6 +150,7 @@ class Report extends StatelessWidget {
                     child: Container(
                       padding: EdgeInsets.fromLTRB(3, 20, 3, 20),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
@@ -158,7 +162,7 @@ class Report extends StatelessWidget {
                             ],
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text('Gửi câu hỏi'),
                             ],
