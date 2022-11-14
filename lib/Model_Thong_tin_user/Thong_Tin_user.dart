@@ -22,7 +22,7 @@ class _Thong_Tin_User extends State<Thong_Tin_User> {
               height: MediaQuery.of(context).size.height,
               decoration: const BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('Images/h2.jpg'), fit: BoxFit.fill)),
+                      image: AssetImage('Images/h1.jpg'), fit: BoxFit.fill)),
             ),
             SingleChildScrollView(
               child: Column(

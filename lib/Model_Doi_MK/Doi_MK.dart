@@ -22,7 +22,7 @@ class _Doi_MK extends State<Doi_MK> {
               height: MediaQuery.of(context).size.height,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('Images/h2.jpg'), fit: BoxFit.fill),
+                    image: AssetImage('Images/h1.jpg'), fit: BoxFit.fill),
               ),
             ),
             SingleChildScrollView(
