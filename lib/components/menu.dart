@@ -210,8 +210,8 @@ class _Menu extends State<Menu> {
                               end: Alignment.bottomRight,
                               stops: [0.0, 1.0],
                               colors: [
-                                Color.fromARGB(255, 110, 2, 90),
                                 Colors.red,
+                                Color.fromARGB(255, 110, 2, 90),
                               ],
                             ),
                             color: Colors.deepPurple.shade300,
@@ -262,8 +262,8 @@ class _Menu extends State<Menu> {
                               end: Alignment.bottomRight,
                               stops: [0.0, 1.0],
                               colors: [
-                                Color.fromARGB(255, 110, 2, 90),
                                 Colors.red,
+                                Color.fromARGB(255, 110, 2, 90),
                               ],
                             ),
                             color: Colors.deepPurple.shade300,
@@ -321,8 +321,8 @@ class _Menu extends State<Menu> {
                               end: Alignment.bottomRight,
                               stops: [0.0, 1.0],
                               colors: [
-                                Color.fromARGB(255, 110, 2, 90),
                                 Colors.red,
+                                Color.fromARGB(255, 110, 2, 90),
                               ],
                             ),
                             color: Colors.deepPurple.shade300,
@@ -375,8 +375,8 @@ class _Menu extends State<Menu> {
                               end: Alignment.bottomRight,
                               stops: [0.0, 1.0],
                               colors: [
-                                Color.fromARGB(255, 110, 2, 90),
                                 Colors.red,
+                                Color.fromARGB(255, 110, 2, 90),
                               ],
                             ),
                             color: Colors.deepPurple.shade300,
@@ -429,8 +429,8 @@ class _Menu extends State<Menu> {
                               end: Alignment.bottomRight,
                               stops: [0.0, 1.0],
                               colors: [
-                                Color.fromARGB(255, 110, 2, 90),
                                 Colors.red,
+                                Color.fromARGB(255, 110, 2, 90),
                               ],
                             ),
                             color: Colors.deepPurple.shade300,
