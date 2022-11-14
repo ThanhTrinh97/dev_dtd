@@ -65,7 +65,7 @@ class _Dang_Nhap extends State<Dang_Nhap> {
                                 color: Colors.white,
                               ),
                               labelStyle: TextStyle(
-                                  color: Colors.yellow,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.bold)),
                         ),
                       ),
@@ -83,7 +83,7 @@ class _Dang_Nhap extends State<Dang_Nhap> {
                               prefixIcon: Icon(Icons.lock, color: Colors.white),
                               suffixIcon: Icon(Icons.remove_red_eye),
                               labelStyle: TextStyle(
-                                color: Colors.yellow,
+                                color: Colors.white,
                                 fontWeight: FontWeight.bold,
                               )),
                         ),
@@ -104,7 +104,7 @@ class _Dang_Nhap extends State<Dang_Nhap> {
                                     child: Text(
                                       'Quên Mật Khẩu',
                                       style: TextStyle(
-                                          color: Colors.white,
+                                          color: Colors.blue,
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
