@@ -63,7 +63,7 @@ class _NavbarMenu extends State<NavbarMenu> {
                           Icons.group,
                           color: currentTab == 1 ? Colors.blue : Colors.grey,
                         ),
-                        Text('Bạn bè',
+                        Text('Thông tin',
                             style: TextStyle(
                               color:
                                   currentTab == 1 ? Colors.blue : Colors.grey,

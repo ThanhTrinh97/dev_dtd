@@ -98,10 +98,12 @@ class _PlanetCard extends StatelessWidget {
       child: Column(
         children: [
           Flexible(
-              child: Hero(
-                  tag: describeEnum(planetName),
-                  child: Image.asset(
-                      'images/planets/${describeEnum(planetName)}.png'))),
+            child: Hero(
+              tag: describeEnum(planetName),
+              child:
+                  Image.asset('images/planets/${describeEnum(planetName)}.png'),
+            ),
+          ),
         ],
       ),
     );
