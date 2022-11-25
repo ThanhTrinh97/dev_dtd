@@ -1,9 +1,8 @@
-import 'package:dev_dtd/components/ChonCauTraLoi/srceens/quiz/quiz_screen.dart';
-import 'package:dev_dtd/components/HuongDanCachChoi.dart';
-import 'package:dev_dtd/components/defeat.dart';
-import 'package:dev_dtd/components/vitory.dart';
+import 'components/ChonCauTraLoi/srceens/quiz/quiz_screen.dart';
+import 'components/HuongDanCachChoi.dart';
+import 'components/defeat.dart';
+import 'components/vitory.dart';
 import 'package:flutter/material.dart';
-import 'components/ChonDoKhoCauHoi.dart';
 import 'components/BangXepHang.dart';
 import 'package:get/get.dart';
 

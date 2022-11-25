@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:dev_dtd/constants.dart';
-import 'package:dev_dtd/controllers/question_controller.dart';
-import  'package:dev_dtd/model/Questions.dart';
+import '/constants.dart';
+import '/controllers/question_controller.dart';
+import '/model/Questions.dart';
 
 import 'progress_bar.dart';
 import 'question_card.dart';
@@ -36,7 +36,7 @@ class Body extends StatelessWidget {
                 child: ProgressBar(),
               ),
               SizedBox(height: kDefaultPadding),
-              Padding(
+              /* Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: kDefaultPadding),
                 child: Obx(
@@ -60,7 +60,7 @@ class Body extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
+              ), */
               Divider(thickness: 1.5),
               SizedBox(height: kDefaultPadding),
               Expanded(
@@ -74,6 +74,10 @@ class Body extends StatelessWidget {
                       question: _questionController.questions[index]),
                 ),
               ),
+              SizedBox(height: kDefaultPadding),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
+              )
             ],
           ),
         ),

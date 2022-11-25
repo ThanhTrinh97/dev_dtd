@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dev_dtd/controllers/question_controller.dart';
-import 'package:dev_dtd/main.dart';
+import '/controllers/question_controller.dart';
+import '/main.dart';
 
 import 'components/body.dart';
 
