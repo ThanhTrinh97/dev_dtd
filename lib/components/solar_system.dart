@@ -1,3 +1,4 @@
+import 'package:dev_dtd/components/menu.dart';
 import 'package:grid_staggered_lite/grid_staggered_lite.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -94,6 +95,8 @@ class _PlanetCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         // Navigator.pushNamed(context, PlanetScreen.route, arguments: planetName);
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Menu()));
       },
       child: Column(
         children: [

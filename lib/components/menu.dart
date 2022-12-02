@@ -271,6 +271,40 @@ class _Menu extends State<Menu> {
                                 padding:
                                     const EdgeInsets.fromLTRB(35, 15, 35, 15),
                                 child: Text(
+                                  "ĐỐI KHÁNG NGẪU NHIÊN",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                            // ),
+                            onPressed: () {
+                              setState(
+                                () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => SolarSystem()));
+                                },
+                              );
+                            },
+                          ),
+                          MaterialButton(
+                            padding: EdgeInsets.all(8.0),
+                            textColor: Colors.white,
+                            splashColor: Colors.greenAccent,
+                            elevation: 8.0,
+                            child: Container(
+                              alignment: Alignment.center,
+                              width: MediaQuery.of(context).size.width / 1.5,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: AssetImage('images/button2.png'),
+                                    fit: BoxFit.cover),
+                              ),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(35, 15, 35, 15),
+                                child: Text(
                                   "BẢNG XẾP HẠNG",
                                   style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
@@ -327,7 +361,12 @@ class _Menu extends State<Menu> {
                               ),
                             ),
                             // ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => History()));
+                            },
                           ),
                         ],
                       ),

@@ -20,7 +20,7 @@ class _ShopCredit extends State<ShopCredit> {
             Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('images/back.jpg'),
+                  image: AssetImage('images/stars_bg.png'),
                   fit: BoxFit.cover,
                 ),
               ),
