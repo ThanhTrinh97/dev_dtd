@@ -1,9 +1,10 @@
+import 'package:dang_nhap/menu.dart';
+import 'package:dang_nhap/quen_mat_khau.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-bool light = true;
-bool valuesecond = false;
-bool isChecked = false;
+import 'quen_mat_khau.dart';
+import 'dang_ky.dart';
 
 class Dang_Nhap extends StatefulWidget {
   const Dang_Nhap({super.key});
@@ -12,9 +13,33 @@ class Dang_Nhap extends StatefulWidget {
 }
 
 class _Dang_Nhap extends State<Dang_Nhap> {
+  TextEditingController txtEmail = TextEditingController();
+  TextEditingController txtPass = TextEditingController();
+  bool ishiden = true;
+  bool validate = false;
+  bool isChecked = false;
+  dynamic validatePassword(String value) {
+    if (validate == false) {
+      return null;
+    } else if (value.isEmpty) {
+      return "Mật Khẩu không Được Bỏ Trống";
+    }
+  }
+
+  dynamic validateEmail(String value) {
+    if (validate == false) {
+      return null;
+    } else if (value.isEmpty) {
+      return "Tài Khoản không Được Bỏ Trống";
+    }
+  }
+
+  final _auth = FirebaseAuth.instance;
+  Icon iconshow = const Icon(Icons.visibility_off);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Stack(
           children: [
@@ -44,7 +69,7 @@ class _Dang_Nhap extends State<Dang_Nhap> {
                         child: Text(
                           'ĐĂNG NHẬP',
                           style: TextStyle(
-                              color: Color.fromARGB(255, 232, 2, 2),
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 30),
                         ),
@@ -52,7 +77,8 @@ class _Dang_Nhap extends State<Dang_Nhap> {
                       Padding(
                         padding: const EdgeInsets.all(5.0),
                         child: TextField(
-                          style: TextStyle(color: Colors.blue),
+                          controller: txtEmail,
+                          style: TextStyle(color: Colors.white),
                           decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
                                 borderSide:
@@ -60,6 +86,7 @@ class _Dang_Nhap extends State<Dang_Nhap> {
                               ),
                               border: OutlineInputBorder(),
                               labelText: 'TÀI KHOẢN',
+                              errorText: validateEmail(txtEmail.text),
                               prefixIcon: Icon(
                                 Icons.supervised_user_circle,
                                 color: Colors.white,
@@ -72,16 +99,36 @@ class _Dang_Nhap extends State<Dang_Nhap> {
                       Padding(
                         padding: const EdgeInsets.all(5.0),
                         child: TextField(
-                          style: TextStyle(color: Colors.blue),
+                          controller: txtPass,
+                          obscureText: ishiden,
+                          style: TextStyle(color: Colors.white),
                           decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
                                 borderSide:
                                     BorderSide(width: 1, color: Colors.black),
                               ),
                               border: OutlineInputBorder(),
+                              suffixIcon: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    ishiden = !ishiden;
+                                  });
+                                  if (ishiden) {
+                                    setState(() {
+                                      iconshow =
+                                          const Icon(Icons.visibility_off);
+                                    });
+                                  } else {
+                                    setState(() {
+                                      iconshow = const Icon(Icons.visibility);
+                                    });
+                                  }
+                                },
+                                child: iconshow,
+                              ),
                               labelText: 'MẬT KHẨU',
+                              errorText: validatePassword(txtPass.text),
                               prefixIcon: Icon(Icons.lock, color: Colors.white),
-                              suffixIcon: Icon(Icons.remove_red_eye),
                               labelStyle: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
@@ -100,11 +147,16 @@ class _Dang_Nhap extends State<Dang_Nhap> {
                                           MaterialStateProperty.all<Color>(
                                               Colors.blue),
                                     ),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => Quen_MK()));
+                                    },
                                     child: Text(
                                       'Quên Mật Khẩu',
                                       style: TextStyle(
-                                          color: Colors.blue,
+                                          color: Colors.red,
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
@@ -132,140 +184,113 @@ class _Dang_Nhap extends State<Dang_Nhap> {
                                     },
                                     child: Text('Nhớ Đăng Nhập',
                                         style: TextStyle(
-                                          color: Colors.red,
+                                          color: Colors.white,
                                         )))
                               ],
                             ),
                           ),
                         ],
                       ),
-                      Column(
+                      Row(
                         children: [
-                          Row(
-                            children: [
-                              Expanded(
-                                  child: Padding(
-                                padding: const EdgeInsets.all(10),
-                                child: Column(
-                                  children: [
-                                    ElevatedButton(
-                                      style: ButtonStyle(
-                                        backgroundColor:
-                                            MaterialStatePropertyAll<Color>(
-                                                Colors.red.withOpacity(0.8)),
-                                        shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(30.0)),
-                                        ),
-                                      ),
-                                      onPressed: () {},
-                                      child: const Padding(
-                                        padding:
-                                            EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                        child: Text(
-                                          'ĐĂNG NHẬP',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )),
-                              Expanded(
-                                  child: Padding(
-                                padding: const EdgeInsets.all(10),
-                                child: Column(
-                                  children: [
-                                    ElevatedButton(
-                                      style: ButtonStyle(
-                                        backgroundColor:
-                                            MaterialStatePropertyAll<Color>(
-                                                Colors.red.withOpacity(0.8)),
-                                        shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(30.0)),
-                                        ),
-                                      ),
-                                      onPressed: () {},
-                                      child: const Padding(
-                                        padding:
-                                            EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                        child: Text(
-                                          'ĐĂNG KÝ',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )),
-                            ],
+                          Container(
+                            margin: EdgeInsets.only(top: 40),
+                            width: MediaQuery.of(context).size.width / 2.0,
+                            height: MediaQuery.of(context).size.height / 10,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('Images/button.png'),
+                              ),
+                            ),
+                            child: TextButton(
+                              onPressed: () async {
+                                setState(() {
+                                  validate = true;
+                                });
+                                // Kiem tra mat khau co tu 6 ky tu tro len
+                                try {
+                                  final _user =
+                                      _auth.signInWithEmailAndPassword(
+                                          email: txtEmail.text,
+                                          password: txtPass.text);
+                                  _auth.authStateChanges().listen((event) {
+                                    if (event != null) {
+                                      txtEmail.clear();
+                                      txtPass.clear();
+                                      Navigator.pushNamedAndRemoveUntil(
+                                        context,
+                                        'home',
+                                        (route) => false,
+                                      );
+                                    } else {
+                                      final snackBar = SnackBar(
+                                          content: Text(
+                                              'Email Hoặc Mật Khẩu Không Đúng'));
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(snackBar);
+                                    }
+                                  });
+                                } catch (e) {
+                                  final snackBar = SnackBar(
+                                      content: Text('Lỗi Kết Nối Đến Server!'));
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
+                                }
+                              },
+                              child: Text(
+                                'ĐĂNG NHẬP',
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 40),
+                            width: MediaQuery.of(context).size.width / 2.0,
+                            height: MediaQuery.of(context).size.height / 10,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('Images/button.png'),
+                              ),
+                            ),
+                            child: TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Dang_Ky()));
+                              },
+                              child: Text(
+                                'ĐĂNG KÝ',
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
                           ),
                         ],
                       ),
-                      Column(children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              padding: EdgeInsets.fromLTRB(5, 50, 10, 1),
-                              width: MediaQuery.of(context).size.width,
-                              height: (MediaQuery.of(context).size.width) / 4.0,
-                              child: OutlinedButton.icon(
-                                style: OutlinedButton.styleFrom(
-                                  backgroundColor: Colors.white,
-                                  side: BorderSide(color: Colors.black),
-                                ),
-                                icon: Icon(
-                                  Icons.email_outlined,
-                                  size: 32,
-                                  color: Colors.red,
-                                ),
-                                label: Text(
-                                  'ĐĂNG NHẬP BẰNG GMAIL',
-                                  style: TextStyle(
-                                      color: Colors.red,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 19),
-                                ),
-                                onPressed: () {},
-                              ),
-                            )
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              padding: EdgeInsets.fromLTRB(5, 10, 10, 20),
-                              width: MediaQuery.of(context).size.width,
-                              height: (MediaQuery.of(context).size.width) / 5.0,
-                              child: OutlinedButton.icon(
-                                style: OutlinedButton.styleFrom(
-                                  backgroundColor: Colors.white,
-                                  side: BorderSide(color: Colors.black),
-                                ),
-                                icon: Icon(Icons.facebook,
-                                    color: Colors.blue, size: 32),
-                                label: Text(
-                                  'ĐĂNG NHẬP BẰNG FACEBOOK',
-                                  style: TextStyle(
-                                      color: Colors.blue,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 17),
-                                ),
-                                onPressed: () {},
-                              ),
-                            )
-                          ],
-                        ),
-                      ]),
+                      Column(
+                        children: [
+                          Container(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image(
+                                  image: AssetImage('Images/dn3.gif'),
+                                  width:
+                                      MediaQuery.of(context).size.width / 1.0,
+                                  height:
+                                      MediaQuery.of(context).size.height / 3.0,
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      )
                     ],
                   ),
                 ],
