@@ -1,10 +1,8 @@
-import 'package:dang_nhap/menu.dart';
+import 'package:dang_nhap/menu12.dart';
 import 'package:dang_nhap/quen_mat_khau.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../Model_Dang_Ky/Dang_Ky.dart';
-import '../Model_Quen_MK/Quen_mk.dart';
 import 'quen_mat_khau.dart';
 import 'dang_ky.dart';
 
@@ -212,7 +210,7 @@ class _Dang_Nhap extends State<Dang_Nhap> {
                                 // Kiem tra mat khau co tu 6 ky tu tro len
                                 try {
                                   final _user =
-                                      _auth.signInWithEmailAndPassword(
+                                      await _auth.signInWithEmailAndPassword(
                                           email: txtEmail.text,
                                           password: txtPass.text);
                                   _auth.authStateChanges().listen((event) {
@@ -224,14 +222,14 @@ class _Dang_Nhap extends State<Dang_Nhap> {
                                         'home',
                                         (route) => false,
                                       );
-                                    } else {
-                                      final snackBar = SnackBar(
-                                          content: Text(
-                                              'Email Hoặc Mật Khẩu Không Đúng'));
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(snackBar);
                                     }
                                   });
+                                } on FirebaseAuthException catch (e) {
+                                  final snackBar = SnackBar(
+                                      content: Text(
+                                          'Email Hoặc Mật Khẩu Không Đúng'));
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
                                 } catch (e) {
                                   final snackBar = SnackBar(
                                       content: Text('Lỗi Kết Nối Đến Server!'));
