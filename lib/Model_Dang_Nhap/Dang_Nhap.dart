@@ -3,6 +3,8 @@ import 'package:dang_nhap/quen_mat_khau.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../Model_Dang_Ky/Dang_Ky.dart';
+import '../Model_Quen_MK/Quen_mk.dart';
 import 'quen_mat_khau.dart';
 import 'dang_ky.dart';
 
