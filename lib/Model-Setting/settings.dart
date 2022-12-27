@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'navbarmenu.dart';
-import 'report.dart';
 import 'dart:typed_data';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/services.dart';
