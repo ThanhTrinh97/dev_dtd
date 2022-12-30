@@ -1,11 +1,10 @@
 import 'dart:math';
 
-import 'package:dang_nhap/quen_mat_khau.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'dang_nhap.dart';
+import '../Model_Quen_MK/Quen_mk.dart';
 
 class Dang_Ky extends StatefulWidget {
   const Dang_Ky({super.key});
