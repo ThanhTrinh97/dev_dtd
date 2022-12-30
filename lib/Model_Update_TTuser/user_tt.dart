@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'components/navbarmenu.dart';
+import 'dang_nhap.dart';
+
 class Update_User extends StatefulWidget {
   const Update_User({super.key});
 
@@ -56,17 +59,36 @@ class _Update_User extends State<Update_User> {
               child: Column(
                 children: [
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      TextButton.icon(
+                        style: TextButton.styleFrom(
+                          primary: Colors.blueAccent, // text + icon color
+                        ),
+                        icon: Icon(
+                          Icons.turn_left_outlined,
+                          size: 32,
+                          color: Colors.white,
+                        ),
+                        label: Text('Back',
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold)),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NavbarMenu()));
+                        },
+                      ),
+                    ],
+                  ),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Column(
-                        children: [
-                          Icon(
-                            Icons.home,
-                            size: 30,
-                          )
-                        ],
-                      ),
                       Expanded(
                           child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
