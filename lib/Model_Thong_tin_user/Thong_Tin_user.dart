@@ -1,11 +1,12 @@
-
+import 'package:dang_nhap/user_tt.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../Model_Update_TTuser/user_tt.dart';
+import 'components/navbarmenu.dart';
+import 'dang_nhap.dart';
 
 bool light = true;
 bool valuesecond = false;
@@ -60,17 +61,36 @@ class _Thong_Tin_User extends State<Thong_Tin_User> {
               child: Column(
                 children: [
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      TextButton.icon(
+                        style: TextButton.styleFrom(
+                          primary: Colors.blueAccent, // text + icon color
+                        ),
+                        icon: Icon(
+                          Icons.turn_left_outlined,
+                          size: 32,
+                          color: Colors.white,
+                        ),
+                        label: Text('Back',
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold)),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Dang_Nhap()));
+                        },
+                      ),
+                    ],
+                  ),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Column(
-                        children: [
-                          Icon(
-                            Icons.home,
-                            size: 30,
-                          )
-                        ],
-                      ),
                       Expanded(
                           child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -114,7 +134,7 @@ class _Thong_Tin_User extends State<Thong_Tin_User> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(5.0),
+                    padding: const EdgeInsets.only(top: 20),
                     child: TextField(
                       controller: _nameController,
                       style: TextStyle(color: Colors.blue),
@@ -217,7 +237,7 @@ class _Thong_Tin_User extends State<Thong_Tin_User> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Update_User()));
+                                          builder: (context) => NavbarMenu()));
                                 },
                                 child: Text(
                                   'CẬP NHẬT THÔNG TIN',
