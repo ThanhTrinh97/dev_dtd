@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'dang_ky.dart';
-import 'dang_nhap.dart';
+import '../Model_Dang_Ky/Dang_Ky.dart';
+import '../Model_Dang_Nhap/Dang_Nhap.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
