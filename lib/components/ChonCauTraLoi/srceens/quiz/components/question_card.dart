@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../../controllers/question_controller.dart';
-import '../../../../../model/Questions.dart';
-import 'package:dev_dtd/constants.dart';
+import '/controllers/question_controller.dart';
+import '/model/Questions.dart';
+import '/constants.dart';
 import 'option.dart';
 
 class QuestionCard extends StatelessWidget {

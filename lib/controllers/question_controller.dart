@@ -1,8 +1,10 @@
+
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
-import 'package:dev_dtd/model/Questions.dart';
-import 'package:dev_dtd/components/ChonCauTraLoi/srceens/score/score_screen.dart';
+import '/model/Questions.dart';
+import '/components/ChonCauTraLoi/srceens/score/score_screen.dart';
 
 // We use get package for our state management
 //xữ lý sự kiện câu hỏi
@@ -20,6 +22,7 @@ class QuestionController extends GetxController
   late PageController _pageController;
   PageController get pageController => this._pageController;
 
+  // ignore: prefer_final_fields
   List<Question> _questions = sample_data
       .map(
         (question) => Question(
@@ -87,8 +90,8 @@ class QuestionController extends GetxController
     _animationController.stop();
     update();
 
-    // Once user select an ans after 3s it will go to the next qn
-    Future.delayed(Duration(seconds: 3), () {
+    // Once user select an ans after 1s it will go to the next qn
+    Future.delayed(Duration(seconds: 1), () {
       nextQuestion();
     });
   }
@@ -107,11 +110,18 @@ class QuestionController extends GetxController
       _animationController.forward().whenComplete(nextQuestion);
     } else {
       // Get package provide us simple way to naviigate another page
-      Get.to(()=>ScoreScreen());
+      //Get?.dialog(ScoreScreen());
+      Get.dialog(ScoreScreen());
+      _animationController.stop();
     }
   }
 
   void updateTheQnNum(int index) {
     _questionNumber.value = index + 1;
   }
+  void addTime(){
+    _animationController.reset();
+    _animationController.forward();
+  }
+  
 }

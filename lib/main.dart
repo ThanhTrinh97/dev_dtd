@@ -5,17 +5,18 @@ import 'components/vitory.dart';
 import 'package:flutter/material.dart';
 import 'components/BangXepHang.dart';
 import 'package:get/get.dart';
+import 'controllers/question_controller.dart';
 
 void main() {
+  QuestionController;
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -36,6 +37,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+   @override
+  void initState(){
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +49,14 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Row(children: [
         ElevatedButton(
-        onPressed: () => Get.to(()=>QuizScreen()),
+        onPressed: (){
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => QuizScreen(),
+            )
+          );
+        } ,
         child: Text('bat dau choi'),
         ),
         ElevatedButton(

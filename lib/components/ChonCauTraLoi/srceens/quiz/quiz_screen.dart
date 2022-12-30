@@ -1,3 +1,4 @@
+import '/components/navbarmenu.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '/controllers/question_controller.dart';
@@ -15,7 +16,12 @@ class QuizScreen extends StatelessWidget {
         leading: IconButton(
             icon: Icon(Icons.home, size: 30,),
             onPressed: () {
-              Get.to(()=>MyHomePage(title: 'Trang Chu'));
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => NavbarMenu(),
+                )
+              );
             },
           ),
         // Fluttter show the back button automatically

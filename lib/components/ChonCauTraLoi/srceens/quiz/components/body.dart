@@ -1,3 +1,4 @@
+import '/components/ChonCauTraLoi/srceens/quiz/components/use_help.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -22,7 +23,7 @@ class Body extends StatelessWidget {
         Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('images/background.jpg'),
+              image: AssetImage('Images/back.jpg'),
               fit: BoxFit.cover
             ),
           ),
@@ -62,7 +63,6 @@ class Body extends StatelessWidget {
                 ),
               ), */
               Divider(thickness: 1.5),
-              SizedBox(height: kDefaultPadding),
               Expanded(
                 child: PageView.builder(
                   // Block swipe to next qn
@@ -77,7 +77,9 @@ class Body extends StatelessWidget {
               SizedBox(height: kDefaultPadding),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-              )
+                child: UseHelp(),
+              ),
+              SizedBox(height: kDefaultPadding),
             ],
           ),
         ),
