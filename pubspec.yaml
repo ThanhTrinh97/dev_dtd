@@ -38,7 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   cached_network_image: ^3.2.2
   http: ^0.13.5
-  firebase_auth: ^4.1.2
+
   cloud_firestore: ^4.0.5
   firebase_core: ^2.2.0
   grid_staggered_lite: ^0.0.6
@@ -48,6 +48,9 @@ dependencies:
   persistent_bottom_nav_bar: ^5.0.2
   google_sign_in: ^5.4.0
   flutter_bloc: ^8.0.1
+  shared_preferences: ^2.0.15
+  email_validator: ^2.0.1
+  firebase_auth: ^4.2.4
 
 dev_dependencies:
   flutter_test:
