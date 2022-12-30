@@ -1,6 +1,6 @@
-import 'package:dang_nhap/components/ChonCauTraLoi/srceens/quiz/quiz_screen.dart';
-import 'package:dang_nhap/components/menu.dart';
-import 'package:get/get.dart';
+import 'package:dev_dtd/components/ChonCauTraLoi/srceens/quiz/quiz_screen.dart';
+
+import '/components/menu.dart';
 import 'package:grid_staggered_lite/grid_staggered_lite.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -99,7 +99,6 @@ class _PlanetCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         // Navigator.pushNamed(context, PlanetScreen.route, arguments: planetName);
-        //Navigator.pushNamed(context, planetName.name, arguments: planetName);
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => QuizScreen()));
       },
@@ -117,4 +116,3 @@ class _PlanetCard extends StatelessWidget {
     );
   }
 }
-

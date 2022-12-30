@@ -1,5 +1,5 @@
-import 'package:dev_dtd/constants.dart';
-import 'package:dev_dtd/controllers/question_controller.dart';
+import '/constants.dart';
+import '/controllers/question_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
@@ -36,37 +36,40 @@ class Option extends StatelessWidget {
             return getTheRightColor() == kRedColor ? Icons.close : Icons.done;
           }
 
-          return InkWell(
-            onTap: press,
-            child: Container(
-              margin: EdgeInsets.only(top: kDefaultPadding),
-              padding: EdgeInsets.all(kDefaultPadding),
-              decoration: BoxDecoration(
-                border: Border.all(color: getTheRightColor()),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "${index + 1}. $text",
-                    style: TextStyle(color: getTheRightColor(), fontSize: 16),
-                  ),
-                  Container(
-                    height: 26,
-                    width: 26,
-                    decoration: BoxDecoration(
-                      color: getTheRightColor() == kGrayColor
-                          ? Colors.transparent
-                          : getTheRightColor(),
-                      borderRadius: BorderRadius.circular(50),
-                      border: Border.all(color: getTheRightColor()),
-                    ),
-                    child: getTheRightColor() == kGrayColor
-                        ? null
-                        : Icon(getTheRightIcon(), size: 16),
-                  )
-                ],
+          return Container(
+            child: InkWell(
+              onTap: press,
+              child: Container(
+                margin: EdgeInsets.only(top: kDefaultPadding),
+                padding: EdgeInsets.all(kDefaultPadding),
+                decoration: BoxDecoration(
+                  border: Border.all(color: getTheRightColor()),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Flexible(
+                      child: Text(
+                      "${index + 1}. $text",
+                      style: TextStyle(color: getTheRightColor(), fontSize: 16),
+                    ),),
+                    Container(
+                      height: 26,
+                      width: 26,
+                      decoration: BoxDecoration(
+                        color: getTheRightColor() == kGrayColor
+                            ? Colors.transparent
+                            : getTheRightColor(),
+                        borderRadius: BorderRadius.circular(50),
+                        border: Border.all(color: getTheRightColor()),
+                      ),
+                      child: getTheRightColor() == kGrayColor
+                          ? null
+                          : Icon(getTheRightIcon(), size: 16),
+                    )
+                  ],
+                ),
               ),
             ),
           );

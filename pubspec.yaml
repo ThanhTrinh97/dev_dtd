@@ -38,6 +38,16 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.6.5
   flutter_svg: ^1.1.6
+  firebase_auth: ^4.2.4
+  email_validator: ^2.1.17
+  cloud_firestore: ^4.3.1
+  shared_preferences: ^2.0.15
+  flutter_bloc: ^8.1.1
+  audioplayers: ^1.1.1
+  lottie: ^2.1.0
+  grid_staggered_lite: ^0.0.6
+  sizer: ^2.0.15
+  persistent_bottom_nav_bar: ^5.0.2
 
 dev_dependencies:
   flutter_test:

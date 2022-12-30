@@ -1,10 +1,11 @@
-import 'package:dev_dtd/constants.dart';
+import '/main.dart';
+
+import '/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:get/get.dart';
 import 'package:matcher/matcher.dart';
-import '../main.dart';
 
 //màn hình chiến thắng
 
@@ -18,7 +19,7 @@ class Victory extends StatelessWidget {
         leading: IconButton(
             icon: Icon(Icons.home, size: 30, color: Colors.black,),
             onPressed: () {
-              Get.to(()=>MyHomePage(title: 'Trang Chu'));
+              Get.to(()=>MyApp());
             },
           ),
         backgroundColor: Colors.transparent,
