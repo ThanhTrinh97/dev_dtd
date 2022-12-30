@@ -1,48 +1,51 @@
-import 'dart:math';
-
-
+import 'dart:ui';
+import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../Model_Quen_MK/Quen_mk.dart';
+import 'dang_nhap.dart';
 
+bool light = true;
+bool valuesecond = false;
+bool isChecked = false;
 
-
-class Dang_Ky extends StatefulWidget {
-  const Dang_Ky({super.key});
+class Quen_MK extends StatefulWidget {
   @override
-  State<Dang_Ky> createState() => _Dang_Ky();
+  State<Quen_MK> createState() => _Quen_MK();
 }
 
-class _Dang_Ky extends State<Dang_Ky> {
-  TextEditingController txtEmail = TextEditingController();
-  TextEditingController txtPass = TextEditingController();
-  TextEditingController passwordConfirmationController =
-      TextEditingController();
-  final _auth = FirebaseAuth.instance;
-  Icon iconshow = const Icon(Icons.visibility_off);
+class _Quen_MK extends State<Quen_MK> {
+  final formkey = GlobalKey<FormState>();
+  final txtEmail = TextEditingController();
 
-  bool validate = false;
-  bool ishiden = true;
-  dynamic validatePassword(String value) {
-    if (validate == false) {
-      return null;
-    } else if (value.isEmpty) {
-      return "Mật Khẩu Không Được Bỏ Trống";
-    } else if (value.length < 6) {
-      return "Mật Khẩu Không Được Nhỏ Hơn 6 Ký Tự";
-    }
+  @override
+  void dispose() {
+    txtEmail.dispose();
+    super.dispose();
   }
 
-  dynamic validateEmail(String value) {
-    if (validate == false) {
-      return null;
-    } else if (value.isEmpty) {
-      return "Tài Khoản Không được bỏ trống ";
-    } else if (value.isEmpty ||
-        !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
-      return "Bạn Hãy Nhập Email Với định dạng abc@gmail.com";
+  Future passwordReset() async {
+    try {
+      await FirebaseAuth.instance
+          .sendPasswordResetEmail(email: txtEmail.text.trim());
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              content: Text(
+                  'Link Password đã được gửi trong hộp thư! Vui long kiểm tra!!'),
+            );
+          });
+    } on FirebaseAuthException catch (e) {
+      print(e);
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              content: Text(e.message.toString()),
+            );
+          });
     }
   }
 
@@ -57,261 +60,121 @@ class _Dang_Ky extends State<Dang_Ky> {
               height: MediaQuery.of(context).size.height,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('Images/h1.jpg'), fit: BoxFit.cover),
+                    image: AssetImage('Images/h1.jpg'), fit: BoxFit.fill),
               ),
             ),
             SingleChildScrollView(
-                child: Column(
-              children: [
-                Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image(
-                          image: const AssetImage('Images/h2.png'),
-                          width: MediaQuery.of(context).size.width / 2.5,
-                        )
-                      ],
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Text(
-                        'ĐĂNG KÝ',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 30),
+              child: Column(
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      TextButton.icon(
+                        style: TextButton.styleFrom(
+                          primary: Colors.blueAccent, // text + icon color
+                        ),
+                        icon: Icon(
+                          Icons.turn_left_outlined,
+                          size: 32,
+                          color: Colors.white,
+                        ),
+                        label: Text('QUÊN MẬT KHẨU',
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold)),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Dang_Nhap()));
+                        },
                       ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image(
+                        image: AssetImage('Images/h2.png'),
+                        width: MediaQuery.of(context).size.width / 2.5,
+                      )
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(2, 100, 2, 0),
+                    child: Text(
+                      'HÃY ĐIỀN EMAIL CỦA BẠN CHÚNG TÔI SẼ GỬI LINK PASSWORD RESET',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 18, color: Colors.red),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: TextField(
-                        controller: txtEmail,
-                        style: const TextStyle(color: Colors.white),
-                        decoration: InputDecoration(
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(2, 20, 2, 0),
+                    child: TextFormField(
+                      style: TextStyle(color: Colors.blue),
+                      controller: txtEmail,
+                      textInputAction: TextInputAction.done,
+                      decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide:
                                 BorderSide(width: 1, color: Colors.black),
                           ),
                           border: OutlineInputBorder(),
                           labelText: 'TÀI KHOẢN',
-                          errorText: validateEmail(txtEmail.text),
-                          prefixIcon: Icon(Icons.supervised_user_circle,
-                              color: Colors.white),
-                          labelStyle: TextStyle(
+                          prefixIcon: Icon(
+                            Icons.supervised_user_circle,
                             color: Colors.white,
-                            fontWeight: FontWeight.bold,
                           ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: TextField(
-                        controller: txtPass,
-                        obscureText: ishiden,
-                        style: const TextStyle(color: Colors.white),
-                        decoration: InputDecoration(
-                            enabledBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(width: 1, color: Colors.black),
-                            ),
-                            border: OutlineInputBorder(),
-                            suffixIcon: GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  ishiden = !ishiden;
-                                });
-                                if (ishiden) {
-                                  setState(() {
-                                    iconshow = const Icon(Icons.visibility_off);
-                                  });
-                                } else {
-                                  setState(() {
-                                    iconshow = const Icon(Icons.visibility);
-                                  });
-                                }
-                              },
-                              child: iconshow,
-                            ),
-                            labelText: 'MẬT KHẨU',
-                            errorText: validatePassword(txtPass.text),
-                            prefixIcon: Icon(
-                              Icons.lock,
+                          labelStyle: TextStyle(
                               color: Colors.white,
+                              fontWeight: FontWeight.bold)),
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      validator: (email) =>
+                          email != null && !EmailValidator.validate(email)
+                              ? 'EMAIL KHÔNG ĐƯỢC BỎ TRỐNG'
+                              : null,
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                          child: Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 20, 10, 10),
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.only(top: 9),
+                              width: MediaQuery.of(context).size.width / 1.5,
+                              height: MediaQuery.of(context).size.height / 9,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage('Images/button.png'),
+                                ),
+                              ),
+                              child: TextButton(
+                                onPressed: () {
+                                  setState(() {});
+                                  passwordReset();
+                                },
+                                child: Text(
+                                  'ĐỔI MẬT KHẨU',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
                             ),
-                            labelStyle: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            )),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: TextField(
-                        controller: passwordConfirmationController,
-                        obscureText: ishiden,
-                        style: const TextStyle(color: Colors.white),
-                        decoration: InputDecoration(
-                            enabledBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(width: 1, color: Colors.black),
-                            ),
-                            border: OutlineInputBorder(),
-                            labelText: 'NHẬP LẠI MẬT KHẨU',
-                            errorText: validatePassword(
-                                passwordConfirmationController.text),
-                            prefixIcon: Icon(Icons.lock, color: Colors.white),
-                            suffixIcon: GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  ishiden = !ishiden;
-                                });
-                                if (ishiden) {
-                                  setState(() {
-                                    iconshow = const Icon(Icons.visibility_off);
-                                  });
-                                } else {
-                                  setState(() {
-                                    iconshow = const Icon(Icons.visibility);
-                                  });
-                                }
-                              },
-                              child: iconshow,
-                            ),
-                            labelStyle: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            )),
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(top: 9),
-                      width: MediaQuery.of(context).size.width / 2.0,
-                      height: MediaQuery.of(context).size.height / 10,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('Images/button.png'),
+                          ],
                         ),
-                      ),
-                      child: TextButton(
-                        onPressed: () async {
-                          setState(() {
-                            validate = true;
-                          });
-                          // Kiem tra mat khau co tu 6 ky tu tro len
-                          if (txtPass.text.length <= 6) {}
-
-                          if (passwordConfirmationController.text.length <=
-                              6) {}
-                          // Kiem tra password co trung nhau khong
-                          if (txtPass.text !=
-                              passwordConfirmationController.text) {
-                            const snackBar = SnackBar(
-                                content: Text('Password Không Trùng Khớp'));
-                            ScaffoldMessenger.of(context)
-                                .showSnackBar(snackBar);
-                          } else {
-                            try {
-                              final newUser =
-                                  await _auth.createUserWithEmailAndPassword(
-                                      email: txtEmail.text,
-                                      password: txtPass.text);
-                              if (newUser != null) {
-                                const snackBar = SnackBar(
-                                    content: Text('Đăng Ký Thành Công!'));
-                                ScaffoldMessenger.of(context)
-                                    .showSnackBar(snackBar);
-                                Navigator.pop(context, 'Đăng Ký Thành Công!');
-                              } else {
-                                const snackBar = SnackBar(
-                                    content: Text('Tài khoản không hợp lệ'));
-                                ScaffoldMessenger.of(context)
-                                    .showSnackBar(snackBar);
-                              }
-                            } catch (e) {
-                              if (txtEmail.text.isEmpty == true &&
-                                  txtPass.text.isEmpty == true) {
-                                const snackBar = SnackBar(
-                                    content: Text(
-                                        'Bạn Không Nhập Tài Khoản và Mật Khẩu'));
-                                ScaffoldMessenger.of(context)
-                                    .showSnackBar(snackBar);
-                              } else {
-                                const snackBar = SnackBar(
-                                    content: Text('Tài khoản không hợp lệ'));
-                                ScaffoldMessenger.of(context)
-                                    .showSnackBar(snackBar);
-                              }
-                            }
-                          }
-                        },
-                        child: Text(
-                          'ĐĂNG KÝ',
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Column(
-                      children: [
-                        Text('Bạn đã có tài khoản?',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold))
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        TextButton(
-                          style: ButtonStyle(
-                            foregroundColor:
-                                MaterialStateProperty.all<Color>(Colors.blue),
-                          ),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Quen_MK()));
-                          },
-                          child: Text('Quên Mật Khẩu',
-                              style: TextStyle(
-                                  color: Colors.red,
-                                  fontWeight: FontWeight.bold)),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image(
-                            image: AssetImage('Images/dk.gif'),
-                            width: MediaQuery.of(context).size.width / 1.75,
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                )
-              ],
-            )),
+                      ))
+                    ],
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),
