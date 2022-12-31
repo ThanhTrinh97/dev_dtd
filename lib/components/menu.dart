@@ -63,7 +63,7 @@ class _Menu extends State<Menu> {
                                       ),
                                     ),
                                     Container(
-                                      margin: EdgeInsets.only(left: 3),
+                                      margin: EdgeInsets.only(left: 4),
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
