@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:dev_dtd/components/vs.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -283,7 +284,7 @@ class _Menu extends State<Menu> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => SolarSystem()));
+                                          builder: (context) => VsWidget()));
                                 },
                               );
                             },
